@@ -15,8 +15,8 @@ variable "path" {
 variable "soft_quota" {
   description = "Soft quota of the blobstore"
   type = object({
-    limit = optional(number)
-    type  = optional(string)
+    limit = number
+    type  = string
   })
   default = null
 }

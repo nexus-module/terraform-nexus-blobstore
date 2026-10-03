@@ -39,8 +39,8 @@ resource "nexus_blobstore_s3" "main" {
       for_each = var.bucket_configuration.advanced_bucket_connection != null ? [var.bucket_configuration.advanced_bucket_connection] : []
 
       content {
-        endpoint                 = advanced_bucket_connection.value.encryption_key
-        force_path_style         = advanced_bucket_connection.value.encryption_type
+        endpoint                 = advanced_bucket_connection.value.endpoint
+        force_path_style         = advanced_bucket_connection.value.force_path_style
         max_connection_pool_size = advanced_bucket_connection.value.max_connection_pool_size
         signer_type              = advanced_bucket_connection.value.signer_type
       }

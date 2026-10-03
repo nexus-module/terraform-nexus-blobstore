@@ -14,8 +14,8 @@ variable "nexus_blobstore_azure" {
       })
     })
     soft_quota = optional(object({
-      limit = optional(number)
-      type  = optional(string)
+      limit = number
+      type  = string
     }))
   }))
   default = []
@@ -29,10 +29,10 @@ variable "nexus_blobstore_file" {
   type = list(object({
     name = string
     path = string
-    soft_quota = object({
-      limit = optional(number)
-      type  = optional(string)
-    })
+    soft_quota = optional(object({
+      limit = number
+      type  = string
+    }))
   }))
   default = []
 }
@@ -46,10 +46,10 @@ variable "nexus_blobstore_group" {
     name        = string
     fill_policy = string
     members     = set(string)
-    soft_quota = object({
-      limit = optional(number)
-      type  = optional(string)
-    })
+    soft_quota = optional(object({
+      limit = number
+      type  = string
+    }))
   }))
   default = []
 }
@@ -85,10 +85,10 @@ variable "nexus_blobstore_s3" {
         signer_type              = optional(string, null)
       }))
     })
-    soft_quota = object({
-      limit = optional(number)
-      type  = optional(string)
-    })
+    soft_quota = optional(object({
+      limit = number
+      type  = string
+    }))
   }))
   default = []
 }
